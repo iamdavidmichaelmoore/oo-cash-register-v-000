@@ -28,7 +28,6 @@ class CashRegister
       end
       quantity.times {@items << title}
       self.total += calculate
-      binding.pry
     end
   end
 
