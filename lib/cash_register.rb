@@ -45,12 +45,6 @@ class CashRegister
 
   def items
     @items
-
-
-  def void_last_transaction
-    @@transaction.each do |item, info|
-      if item == @items.last
-        info[0] -= 1
   end
 
 
