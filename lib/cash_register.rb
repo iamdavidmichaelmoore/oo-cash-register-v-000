@@ -50,6 +50,10 @@ class CashRegister
   def void_last_transaction
     @@transaction.each do |item, info|
       if item == @items.last
-        info[0] -= @@
+        info[0] -= @@record[@@record.keys.last][0]
+        info[1] -= @@record[@@record.keys.last][1]
+      end
+    end
+  end
 
 end
