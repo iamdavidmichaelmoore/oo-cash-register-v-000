@@ -14,7 +14,7 @@ class CashRegister
     @items = []
   end
 
-  def add_item(title, price, quantity=0)
+  def add_item(title, price, quantity=1)
     quant_price_ary = [quantity, price]
     calculate = price * quantity
     if @@transaction.empty? || !@@transaction.key?(title)
