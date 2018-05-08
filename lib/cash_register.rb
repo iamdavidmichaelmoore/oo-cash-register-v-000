@@ -53,7 +53,7 @@ class CashRegister
         info[0] -= @@record[@@record.keys.last][0]
         info[1] -= @@record[@@record.keys.last][1]
       end
-      total -= @@record[@@record.keys.last][1]
+      self.total -= @@record[@@record.keys.last][1]
     end
   end
 
