@@ -50,6 +50,7 @@ class CashRegister
   def void_last_transaction
     @@transaction.each do |item, info|
       if item == @items.last
+        #modifies the itemized summary of transactions within @@transaction with the running record of transactions stored in @@record
         info[0] -= @@record[@@record.keys.last][0]
         info[1] -= @@record[@@record.keys.last][1]
       end
