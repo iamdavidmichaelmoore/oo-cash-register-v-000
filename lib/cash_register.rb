@@ -19,14 +19,14 @@ class CashRegister
     calculate = price * quantity
     if @@transaction == {} || !@@transaction.key?(title)
       @@transaction[title] = quant_price_ary
-      @items << title
+      quantity.times {@items << title}
       self.total += calculate
     elsif @@transaction.key?(title)
       @@transaction.each do |item, info|
         info[0] += quantity
         info[1] += price
       end
-      @items << title
+      quantity.times {@items << title}
       self.total += calculate
       binding.pry
     end
