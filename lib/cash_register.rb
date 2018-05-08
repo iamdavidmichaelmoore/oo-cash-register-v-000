@@ -17,7 +17,7 @@ class CashRegister
   def add_item(title, price, quantity=1)
     quant_price_ary = [quantity, price]
     calculate = price * quantity
-    if @@transaction == {} || !@@transaction.key?(title)
+    if @@transaction.empty? || !@@transaction.key?(title)
       @@transaction[title] = quant_price_ary
       quantity.times {@items << title}
       @@record[title] = quant_price_ary
@@ -47,6 +47,9 @@ class CashRegister
     @items
   end
 
-
+  def void_last_transaction
+    @@transaction.each do |item, info|
+      if item == @items.last
+        info[0] -= @@
 
 end
