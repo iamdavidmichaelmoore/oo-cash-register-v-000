@@ -6,7 +6,7 @@ class CashRegister
   attr_accessor :total, :discount
 
   @@transaction = {}
-  #@@items = []
+  @@record = {}
 
   def initialize(discount=0)
     @total = 0
@@ -20,6 +20,7 @@ class CashRegister
     if @@transaction == {} || !@@transaction.key?(title)
       @@transaction[title] = quant_price_ary
       quantity.times {@items << title}
+      @@record[title] = quant_price_ary
       self.total += calculate
     elsif @@transaction.key?(title)
       @@transaction.each do |item, info|
@@ -27,6 +28,7 @@ class CashRegister
         info[1] += price
       end
       quantity.times {@items << title}
+      @@record[title] = quant_price_ary
       self.total += calculate
     end
   end
@@ -43,6 +45,12 @@ class CashRegister
 
   def items
     @items
+
+
+  def void_last_transaction
+    @@transaction.each do |item, info|
+      if item == @items.last
+        info[0] -= 1
   end
 
 
