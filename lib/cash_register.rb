@@ -54,6 +54,7 @@ class CashRegister
         info[1] -= @@record[@@record.keys.last][1]
       end
       self.total -= @@record[@@record.keys.last][1]
+      puts @@record[@@record.keys.last][1]
     end
   end
 
